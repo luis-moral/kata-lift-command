@@ -1,17 +1,17 @@
 public class FloorControlPanel {
-    private Command goToFloorUpCommand;
-    private Command goToFloorDownCommand;
+    private Command callLiftUpCommand;
+    private Command callLiftDownCommand;
 
-    public void setCommand(Command goToFloorUpCommand, Command goToFloorDownCommand) {
-        this.goToFloorUpCommand = goToFloorUpCommand;
-        this.goToFloorDownCommand = goToFloorDownCommand;
+    public void setCommand(Command callLiftUpCOmmand, Command callLiftDownCommand) {
+        this.callLiftUpCommand = callLiftUpCOmmand;
+        this.callLiftDownCommand = callLiftDownCommand;
     }
 
     public void goToFloorUpButtonWasPushed() {
-        this.goToFloorUpCommand.execute();
+        this.callLiftUpCommand.execute();
     }
 
     public void goToFloorDownButtonWasPushed() {
-        this.goToFloorDownCommand.execute();
+        this.callLiftDownCommand.execute();
     }
 }

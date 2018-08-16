@@ -20,14 +20,20 @@ public class CommandCenterClient {
     private void configureFloorInvokers() {
         floorControlPanetMap = new HashMap<>();
 
-        for (int i=0; i<floorCount; i++) {
-            FloorControlPanel floorControlPanel = new FloorControlPanel();
-            CallLiftCommand callLiftUpCommand = new CallLiftCommand(commandCenter, i, Direction.UP);
-            CallLiftCommand callLiftDownCommand = new CallLiftCommand(commandCenter, i, Direction.DOWN);
+        for (int i=0; i<liftCount; i++) {
+            for (int j=0; j<floorCount; j++) {
+                FloorControlPanel floorControlPanel = new FloorControlPanel();
+                CallLiftCommand callLiftUpCommand = new CallLiftCommand(commandCenter, i, j, Direction.UP);
+                CallLiftCommand callLiftDownCommand = new CallLiftCommand(commandCenter, i, j, Direction.DOWN);
 
-            floorControlPanel.setCommand(callLiftUpCommand, callLiftDownCommand);
+                floorControlPanel.setCommand(callLiftUpCommand, callLiftDownCommand);
 
-            floorControlPanetMap.put(i, floorControlPanel);
+                floorControlPanetMap.put(j, floorControlPanel);
+            }
         }
+    }
+
+    public FloorControlPanel getFloorControlPanel(int floorId) {
+        return floorControlPanetMap.get(floorId);
     }
 }
