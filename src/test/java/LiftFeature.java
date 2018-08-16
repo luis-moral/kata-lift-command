@@ -6,8 +6,10 @@ public class LiftFeature {
     lift_command_center_should_move_lift_to_calling_floor() {
         CommandCenter commandCenter = new CommandCenter();
 
-        FloorControlPanel floorControlPanel = new FloorControlPanel(3);
-        floorControlPanel.callLift(Direction.UP);
+        FloorControlPanel floorControlPanel = new FloorControlPanel();
+
+
+        floorControlPanel.goToFloorUpButtonWasPushed();
 
         assertThat(commandCenter.getCurrentFloor(0)).isEqualTo(3);
     }

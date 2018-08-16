@@ -6,4 +6,8 @@ public class CommandCenter {
     public void goToFloor(int floorId) {
 
     }
+
+    public void callLift(int floorId, Direction direction) {
+
+    }
 }
